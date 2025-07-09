@@ -19,14 +19,14 @@ Make sure you have Python 3.9+ installed. Then follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/space-invaders-qlearning.git
-cd space-invaders-qlearning
+git clone https://github.com/charlesmraines/q-spaceinvaders.git
+cd q-spaceinvaders
 ```
 
 ### 2. Create a virtual environment (optional but recommended)
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+conda create space_invaders
+conda activate space_invaders
 ```
 
 ### 3. Install dependencies
@@ -59,9 +59,8 @@ Press `q` during the test phase to exit the game window.
 
 ## 🧠 How It Works
 
-- The screen is preprocessed to extract a simplified **2-state representation**:
-  - `State 0`: No invader aligned with the shooter
-  - `State 1`: An invader is aligned with the shooter
+- The screen is preprocessed to extract a discretized state:
+  - (shooter_bin, invader_bin, bullet_bin)
 - The agent selects among 6 discrete actions using a Q-table:
   - `LEFT`, `RIGHT`, `FIRE`, etc.
 - Rewards are used to iteratively update the Q-values during training.
@@ -70,16 +69,7 @@ Press `q` during the test phase to exit the game window.
 
 ## 📦 Requirements
 
-All dependencies are listed in `requirements.txt`:
-
-- gymnasium
-- ale-py
-- autorom
-- numpy
-- opencv-python
-- tqdm
-- tabulate
-- matplotlib (optional, only if using the plot mode)
+All dependencies are listed in `requirements.txt`.
 
 Install them using:
 
@@ -98,8 +88,7 @@ pip install -r requirements.txt
 
 ## 📷 Preview
 
-![Q-table Terminal Output](assets/qtable_example.png)
-*(Optional: add a screenshot of the Q-table or gameplay)*
+![Q-table Terminal Output](assets/space_invaders.png)
 
 ---
 
